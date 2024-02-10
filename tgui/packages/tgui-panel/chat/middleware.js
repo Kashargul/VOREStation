@@ -51,17 +51,17 @@ const saveChatToStorage = async (store) => {
     .map((message) => serializeMessage(message));
   storage.set('chat-state', state);
   storage.set('chat-messages', messages);
-  storage.set(
-    'chat-messages-archive',
-    chatRenderer.archivedMessages.map((message) => serializeMessage(message)),
-  ); // FIXME: Better chat history
+  // storage.set('chat-messages-archive', chatRenderer.archivedMessages); // FIXME: Better chat history
+
+  storage.setArchive(chatRenderer.archivedMessages);
 };
 
 const loadChatFromStorage = async (store) => {
   const [state, messages, archivedMessages] = await Promise.all([
     storage.get('chat-state'),
     storage.get('chat-messages'),
-    storage.get('chat-messages-archive'), // FIXME: Better chat history
+    // storage.get('chat-messages-archive'), // FIXME: Better chat history
+    storage.getArchivedMessages(),
   ]);
   // Discard incompatible versions
   if (state && state.version <= 4) {
