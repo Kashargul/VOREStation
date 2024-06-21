@@ -181,9 +181,10 @@ const GeneralMobSettings = (props) => {
           <LabeledList.Item label="Spawn Amount">
             <NumberInput
               value={props.amount}
+              step={1}
               minValue={0}
               maxValue={256}
-              onChange={(e, val) => props.onAmount(val)}
+              onChange={(val) => props.onAmount(val)}
             />
           </LabeledList.Item>
           <LabeledList.Item label={'Size (' + props.sizeMultiplier + '%)'}>
@@ -205,21 +206,24 @@ const GeneralMobSettings = (props) => {
                 <LabeledList.Item label="Spawn (X/Y/Z) Coords">
                   <NumberInput
                     value={data.loc_lock ? data.loc_x : props.x}
+                    step={1}
                     minValue={0}
                     maxValue={256}
-                    onChange={(e, val) => props.onX(val)}
+                    onChange={(val) => props.onX(val)}
                   />
                   <NumberInput
                     value={data.loc_lock ? data.loc_y : props.y}
+                    step={1}
                     minValue={0}
                     maxValue={256}
-                    onChange={(e, val) => props.onY(val)}
+                    onChange={(val) => props.onY(val)}
                   />
                   <NumberInput
                     value={data.loc_lock ? data.loc_z : props.z}
+                    step={1}
                     minValue={0}
                     maxValue={256}
-                    onChange={(e, val) => props.onZ(val)}
+                    onChange={(val) => props.onZ(val)}
                   />
                   <Button.Checkbox
                     checked={data.loc_lock}
@@ -231,10 +235,11 @@ const GeneralMobSettings = (props) => {
                 <LabeledList.Item label="Spawn Radius (WIP)">
                   <NumberInput
                     value={props.radius}
+                    step={1}
                     disabled
                     minValue={0}
                     maxValue={256}
-                    onChange={(e, val) => props.onRadius(val)}
+                    onChange={(val) => props.onRadius(val)}
                   />
                 </LabeledList.Item>
               </LabeledList>
@@ -280,13 +285,19 @@ const GeneralMobSettings = (props) => {
                     <LabeledList.Item label="Max Health">
                       <NumberInput
                         value={data.max_health}
-                        onChange={(e, val) => props.onMaxHealth(val)}
+                        step={1}
+                        minValue={0}
+                        maxValue={Infinity}
+                        onChange={(val) => props.onMaxHealth(val)}
                       />
                     </LabeledList.Item>
                     <LabeledList.Item label="Health">
                       <NumberInput
                         value={data.health}
-                        onChange={(e, val) => props.onHealth(val)}
+                        step={1}
+                        minValue={0}
+                        maxValue={Infinity}
+                        onChange={(val) => props.onHealth(val)}
                       />
                     </LabeledList.Item>
                     <br />
@@ -298,13 +309,19 @@ const GeneralMobSettings = (props) => {
                     <LabeledList.Item label="Melee Damage (Lower)">
                       <NumberInput
                         value={data.melee_damage_lower}
-                        onChange={(e, val) => props.onMeleeDamageLower(val)}
+                        step={1}
+                        minValue={0}
+                        maxValue={Infinity}
+                        onChange={(val) => props.onMeleeDamageLower(val)}
                       />
                     </LabeledList.Item>
                     <LabeledList.Item label="Melee Damage (Upper)">
                       <NumberInput
                         value={data.melee_damage_upper}
-                        onChange={(e, val) => props.onMeleeDamageUpper(val)}
+                        step={1}
+                        minValue={0}
+                        maxValue={Infinity}
+                        onChange={(val) => props.onMeleeDamageUpper(val)}
                       />
                     </LabeledList.Item>
                   </>

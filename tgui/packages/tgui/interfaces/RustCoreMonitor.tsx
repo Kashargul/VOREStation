@@ -91,7 +91,6 @@ export const RustCoreMonitorContent = (props) => {
             <Table.Cell>{core.field_temperature}</Table.Cell>
             <Table.Cell>
               <Knob
-                forcedInputWidth="60px"
                 size={1.25}
                 color={!!core.has_field && 'yellow'}
                 value={core.target_field_strength}

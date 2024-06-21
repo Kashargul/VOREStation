@@ -70,7 +70,6 @@ export const GyrotronControlContent = (props) => {
             </Table.Cell>
             <Table.Cell>
               <Knob
-                forcedInputWidth="60px"
                 size={1.25}
                 color={!!gyro.active && 'yellow'}
                 value={gyro.fire_delay}
@@ -88,7 +87,6 @@ export const GyrotronControlContent = (props) => {
             </Table.Cell>
             <Table.Cell>
               <Knob
-                forcedInputWidth="60px"
                 size={1.25}
                 color={!!gyro.active && 'yellow'}
                 value={gyro.strength}
