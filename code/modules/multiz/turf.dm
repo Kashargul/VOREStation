@@ -6,7 +6,7 @@
 		if(direction == UP) //on a turf below, trying to enter
 			return 0
 		if(direction == DOWN) //on a turf above, trying to enter
-			return !density && isopenspace(GetAbove(src)) // VOREStation Edit
+			return !density && (isopenspace(GetAbove(src)) || isspace(GetAbove(src))) // VOREStation Edit
 
 /// Multiz support override for CanZPass
 /turf/simulated/open/CanZPass(atom, direction)
