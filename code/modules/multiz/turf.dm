@@ -1,14 +1,13 @@
 /// Multiz support override for CanZPass
 /turf/proc/CanZPass(atom/A, direction)
-	if(z == A.z) //moving FROM this turf
-		return direction == UP //can't go below
-	else
-		if(direction == UP) //on a turf below, trying to enter
-			return 0
-		if(direction == DOWN) //on a turf above, trying to enter
-			if(z == A.z)
-				return !density // Checks for the start, can we pass through our standing turf
-			return !density && (isopenspace(GetAbove(src)) || isspace(GetAbove(src))) // Checks if our start turf from the destination view
+	if(direction == UP)
+		if(z == A.z) // Start turf check
+			return TRUE
+		return !density && (isopenspace(src) || isspace(src)) // Destination turf check
+	if(direction == DOWN)
+		if(z == A.z) // Start turf check
+			return !density
+		return !density && (isopenspace(GetAbove(src)) || isspace(GetAbove(src))) // Destination turf check
 
 /// Multiz support override for CanZPass
 /turf/simulated/open/CanZPass(atom, direction)
