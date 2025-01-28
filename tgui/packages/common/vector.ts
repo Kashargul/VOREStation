@@ -8,7 +8,7 @@
  * @license MIT
  */
 
-import { map, reduce, zip } from './collections';
+function zip(arr: Vector[]):Vector[]{ return Array(Math.max(...arr.map(a => a.length))).fill().map((_,i) => arr.map(a => a[i]))};
 
 const ADD = (a: number, b: number): number => a + b;
 const SUB = (a: number, b: number): number => a - b;
@@ -18,34 +18,34 @@ const DIV = (a: number, b: number): number => a / b;
 export type Vector = number[];
 
 export const vecAdd = (...vecs: Vector[]): Vector => {
-  return map(zip(...vecs), (x) => reduce(x, ADD));
+  return zip(...vecs).map((x) => x.reduce(ADD));
 };
 
 export const vecSubtract = (...vecs: Vector[]): Vector => {
-  return map(zip(...vecs), (x) => reduce(x, SUB));
+  return zip(...vecs).map((x) => x.reduce(SUB));
 };
 
 export const vecMultiply = (...vecs: Vector[]): Vector => {
-  return map(zip(...vecs), (x) => reduce(x, MUL));
+  return zip(...vecs).map((x) => x.reduce(MUL));
 };
 
 export const vecDivide = (...vecs: Vector[]): Vector => {
-  return map(zip(...vecs), (x) => reduce(x, DIV));
+  return zip(...vecs).map((x) => x.reduce(DIV));
 };
 
 export const vecScale = (vec: Vector, n: number): Vector => {
-  return map(vec, (x) => x * n);
+  return vec.map((x) => x * n);
 };
 
 export const vecInverse = (vec: Vector): Vector => {
-  return map(vec, (x) => -x);
+  return vec.map((x) => -x);
 };
 
 export const vecLength = (vec: Vector): number => {
-  return Math.sqrt(reduce(vecMultiply(vec, vec), ADD));
+  return Math.sqrt(vecMultiply(vec, vec).reduce(ADD));
 };
 
 export const vecNormalize = (vec: Vector): Vector => {
   const length = vecLength(vec);
-  return map(vec, (c) => c / length);
+  return vec.map((c) => c / length);
 };
