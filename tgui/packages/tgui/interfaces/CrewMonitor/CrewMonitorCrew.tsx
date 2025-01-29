@@ -23,8 +23,7 @@ export const CrewMonitorCrew = (props: { crew: crewmember[] }) => {
 
   const { isAI, map_levels } = data;
 
-  const our_levels: number[] = [...map_levels];
-  our_levels.push(-1);
+  const our_levels: number[] = [[-1], ...map_levels];
 
   const levelObject = Object.fromEntries(
     our_levels.map((level) => [level.toString(), true]),
