@@ -23,8 +23,9 @@ export const CrewMonitorCrew = (props: { crew: crewmember[] }) => {
 
   const { isAI, map_levels } = data;
 
+  const our_levels: number[] = map_levels.push(-1);
   const levelObject = Object.fromEntries(
-    map_levels.map((level) => [level.toString(), true]),
+    our_levels.map((level) => [level.toString(), true]),
   );
 
   const [locationSearch, setLocationSearch] = useState<object>(levelObject);
@@ -134,7 +135,7 @@ export const CrewMonitorCrew = (props: { crew: crewmember[] }) => {
                   });
                 }}
               >
-                {level.toString()}
+                {level === -1 ? "?" : level.toString()}
               </Button>
             ))}
           <Button
