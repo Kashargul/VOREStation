@@ -122,7 +122,7 @@ export const CrewMonitorCrew = (props: { crew: crewmember[] }) => {
           />
         </Table.Cell>
         <Table.Cell>
-          {map_levels
+          {our_levels
             .sort((a, b) => Number(a) - Number(b))
             .map((level) => (
               <Button
