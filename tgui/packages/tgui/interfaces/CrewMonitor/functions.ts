@@ -40,7 +40,7 @@ export function getShownCrew(
 ) {
   return flow([
     (crew: crewmember[]) => {
-      if (!locationSearch) {
+      if (!locationSearch?.length) {
         return crew;
       } else {
         return filter(crew, (cm) => locationSearch[cm.realZ.toString()]);
@@ -52,7 +52,8 @@ export function getShownCrew(
         (cm) =>
           (deceasedStatus && cm.dead === true) ||
           (livingStatus && cm.stat < 1) ||
-          (unconsciousStatus && cm.stat === 1),
+          (unconsciousStatus && cm.stat === 1) ||
+          (!cm.stat),
       );
     },
     (crew: crewmember[]) => {
