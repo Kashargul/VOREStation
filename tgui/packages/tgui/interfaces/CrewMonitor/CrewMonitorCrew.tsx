@@ -136,7 +136,7 @@ export const CrewMonitorCrew = (props: { crew: crewmember[] }) => {
                   });
                 }}
               >
-                {level === -1 ? "?" : level.toString()}
+                {level === "-1" ? "?" : level.toString()}
               </Button>
             ))}
           <Button
