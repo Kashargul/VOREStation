@@ -40,7 +40,7 @@ export function getShownCrew(
 ) {
   return flow([
     (crew: crewmember[]) => {
-      if (!locationSearch?.length) {
+      if (!locationSearch) {
         return crew;
       } else {
         return filter(crew, (cm) => locationSearch[cm.realZ.toString()]);
