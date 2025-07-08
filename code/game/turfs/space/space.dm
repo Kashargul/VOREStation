@@ -36,6 +36,19 @@
 	else //Dust
 		appearance = SSskybox.dust_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
 
+	// List turfs that should be transparent
+	var/turf/current = src
+	var/should_change = FALSE
+	while(current)
+		current = GetBelow(current)
+		var/obj/structure/lattice/lat = locate() in current
+		if(!isspace(current) || lat)
+			should_change = TRUE
+			break
+
+	if(istype(current) && should_change)
+		if(!(src.z in using_map.below_blocked_levels) && (!istype(current, /turf/unsimulated/wall) && !istype(current, /turf/simulated/sky)))
+			LAZYADDASSOCLIST(SSspace_transparency.to_change_space_tiles, "[z]", src)
 	return ..()
 
 /turf/space/proc/toggle_transit(var/direction)
