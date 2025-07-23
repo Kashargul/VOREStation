@@ -1404,7 +1404,7 @@
 	for (var/belly in vore_organs)
 		var/obj/belly/B = belly
 
-		var/fill_percentage = B.reagents.maximum_volume > 0 ? B.reagents.total_volume / B.reagents.maximum_volume : 0
+		var/fill_percentage = custom_max_volume > 0 ? B.reagents.total_volume / custom_max_volume : 0
 
 		if(0 <= fill_percentage && fill_percentage <= 0.2 && B.show_fullness_messages)
 			message += B.get_reagent_examine_msg1()
