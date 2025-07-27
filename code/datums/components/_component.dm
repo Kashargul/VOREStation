@@ -426,12 +426,13 @@
  *
  * Arguments:
  * * component_type The typepath of the component to create or return
+ * * manual_load If we are manually adding this (post-spawn) or not.
  * * ... additional arguments to be passed when creating the component if it does not exist
  */
-/datum/proc/_LoadComponent(list/arguments)
+/datum/proc/_LoadComponent(list/arguments, manual_load)
 	. = GetComponent(arguments[1])
 	if(!.)
-		return _AddComponent(arguments)
+		return _AddComponent(arguments, manual = manual_load)
 /**
  * Removes the component from parent, ends up with a null parent
  * Used as a helper proc by the component transfer proc, does not clean up the component like Destroy does

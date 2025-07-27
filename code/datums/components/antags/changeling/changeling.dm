@@ -155,9 +155,8 @@ var/list/datum/power/changeling/powerinstances = list()
 	if(!mind)
 		return
 	//The current mob is made a changeling AND the mind is made a changeling.
-	var/datum/component/antag/changeling/comp = LoadComponent(/datum/component/antag/changeling)
+	var/datum/component/antag/changeling/comp = LoadComponent(/datum/component/antag/changeling, TRUE)
 	mind.antag_holder.changeling = comp
-	comp.lateload_pref_data()
 	var/lesser_form = !ishuman(src)
 
 	if(!powerinstances.len)
