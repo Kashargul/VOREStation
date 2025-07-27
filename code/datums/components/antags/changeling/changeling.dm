@@ -440,7 +440,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced")
 
-/obj/item/toy/katana/changeling_debug/attack_self(mob/user)
+/obj/item/changeling_debug/attack_self(mob/user)
 	user.make_changeling()
 
 ///Changeling Panel
