@@ -99,3 +99,9 @@
 
 /obj/effect/landmark/start/ghost_roles
 	name = JOB_GHOSTROLES
+/obj/effect/landmark/start/outsider
+	name = JOB_OUTSIDER
+/obj/effect/landmark/start/outsider_robot
+	name = JOB_OUTSIDER_ROBOT
+/obj/effect/landmark/start/anomaly
+	name = JOB_ANOMALY

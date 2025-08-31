@@ -421,7 +421,7 @@ GLOBAL_VAR_INIT(message_delay, 0) // To make sure restarting the recentmessages 
 		if(data == DATA_ANTAG && isobserver(R) && R.client?.prefs?.read_preference(/datum/preference/toggle/ghost_radio))
 			continue
 
-		var/list/ghostradio_freq_blacklist = list(ENT_FREQ)//, BDCM_FREQ) //Kept for Downstream use
+		var/list/ghostradio_freq_blacklist = list(ENT_FREQ, BDCM_FREQ)
 		if(istype(R, /mob/observer/dead) && R.client?.prefs?.read_preference(/datum/preference/toggle/ghost_radio) && (connection.frequency in ghostradio_freq_blacklist))
 			continue
 

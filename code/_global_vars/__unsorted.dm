@@ -54,7 +54,12 @@ GLOBAL_LIST_INIT(shell_module_types, list(
 ))
 // List of whitelisted modules
 GLOBAL_LIST_INIT(whitelisted_module_types, list(
-	"Lost"
+	"Gravekeeper",
+	"Lost",
+	"Protector",
+	"Mechanist",
+	"Combat Medic",
+	"Ninja"
 ))
 
 // Bomb cap!

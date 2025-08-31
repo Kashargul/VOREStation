@@ -158,7 +158,7 @@
 
 	if(mind)		//TODO
 		mind.transfer_to(O)
-		if(O.mind.assigned_role == JOB_CYBORG)
+		if(O.mind.assigned_role == JOB_CYBORG || O.mind.assigned_role == JOB_OUTSIDER_ROBOT)
 			O.mind.original_character = WEAKREF(O)
 		else if(mind && mind.special_role)
 			O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
@@ -166,7 +166,10 @@
 		O.key = key
 
 	O.loc = loc
-	O.job = JOB_CYBORG
+	if(O.mind.assigned_role == JOB_OUTSIDER_ROBOT)
+		O.job = JOB_OUTSIDER_ROBOT
+	else
+		O.job = JOB_CYBORG
 	if(O.mind.assigned_role == JOB_CYBORG)
 		if(O.mind.role_alt_title == JOB_ALT_ROBOT)
 			O.mmi = new /obj/item/mmi/digital/posibrain(O)

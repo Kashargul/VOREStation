@@ -274,6 +274,7 @@ var/list/all_maps = list()
 		num2text(ENG_FREQ)	= list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS),
 		num2text(MED_FREQ)	= list(ACCESS_MEDICAL_EQUIP),
 		num2text(MED_I_FREQ)= list(ACCESS_MEDICAL_EQUIP),
+		num2text(BDCM_FREQ)	= list(ACCESS_SECURITY),
 		num2text(SEC_FREQ)	= list(ACCESS_SECURITY),
 		num2text(SEC_I_FREQ)= list(ACCESS_SECURITY),
 		num2text(SCI_FREQ)	= list(ACCESS_TOX,ACCESS_ROBOTICS,ACCESS_XENOBIOLOGY),

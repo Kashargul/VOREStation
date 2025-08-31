@@ -27,6 +27,9 @@
 #define CHANNEL_TALON "Talon"
 #define CHANNEL_CASINO "Casino"
 
+// Special Channels
+#define CHANNEL_BODYCAM "Bodycam"
+#define CHANNEL_OUTSIDER "Outsider"
 
 /*
 Frequency range: 1200 to 1600
@@ -87,6 +90,9 @@ On the map:
 #define SYND_FREQ 1213
 #define RAID_FREQ 1277
 #define ENT_FREQ 1461 //entertainment frequency. This is not a diona exclusive frequency.
+
+#define BDCM_FREQ 1483
+#define OUT_FREQ 1367
 
 #define LOCKED_COM_FREQ 1481
 

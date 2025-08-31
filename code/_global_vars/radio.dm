@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(radiochannels, list(
 	CHANNEL_MEDICAL			= MED_FREQ,
 	CHANNEL_ENGINEERING		= ENG_FREQ,
 	CHANNEL_SECURITY		= SEC_FREQ,
+	CHANNEL_BODYCAM			= BDCM_FREQ,
 	CHANNEL_RESPONSE_TEAM	= ERT_FREQ,
 	CHANNEL_SPECIAL_OPS		= DTH_FREQ,
 	CHANNEL_MERCENARY		= SYND_FREQ,
@@ -16,8 +17,9 @@ GLOBAL_LIST_INIT(radiochannels, list(
 	CHANNEL_ENTERTAINMENT	= ENT_FREQ,
 	CHANNEL_MEDICAL_1		= MED_I_FREQ,
 	CHANNEL_SECURITY_1		= SEC_I_FREQ,
-	CHANNEL_TALON			= TALON_FREQ, //VOREStation Add
+	CHANNEL_TALON			= TALON_FREQ,
 	CHANNEL_CASINO			= CSN_FREQ,
+	CHANNEL_OUTSIDER		= OUT_FREQ
 ))
 
 // Hey, if anyone ever needs to update tgui/packages/tgui/constants.js with new radio channels
@@ -58,9 +60,9 @@ var/list/CENT_FREQS = list(ERT_FREQ, DTH_FREQ)
 var/list/ANTAG_FREQS = list(SYND_FREQ, RAID_FREQ)
 
 //Department channels, arranged lexically
-var/list/DEPT_FREQS = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, SEC_FREQ, SCI_FREQ, SRV_FREQ, SUP_FREQ)
+var/list/DEPT_FREQS = list(AI_FREQ, BDCM_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, SEC_FREQ, SCI_FREQ, SRV_FREQ, SUP_FREQ)
 
-var/list/OFFMAP_FREQS = list(TALON_FREQ, CSN_FREQ) //VOREStation Add
+var/list/OFFMAP_FREQS = list(TALON_FREQ, CSN_FREQ, OUT_FREQ)
 
 /proc/frequency_span_class(var/frequency)
 	// Antags!
@@ -78,6 +80,8 @@ var/list/OFFMAP_FREQS = list(TALON_FREQ, CSN_FREQ) //VOREStation Add
 	// department radio formatting (poorly optimized, ugh)
 	if(frequency == SEC_FREQ)
 		return "secradio"
+	if(frequency == BDCM_FREQ)
+		return "bdcmradio"
 	if (frequency == ENG_FREQ)
 		return "engradio"
 	if(frequency == SCI_FREQ)
@@ -94,8 +98,6 @@ var/list/OFFMAP_FREQS = list(TALON_FREQ, CSN_FREQ) //VOREStation Add
 		return "entradio"
 	if(frequency in DEPT_FREQS)
 		return "deptradio"
-	//VOREStation Add
 	if(frequency in OFFMAP_FREQS)
 		return "expradio"
-	//VOREStation Add End
 	return "radio"

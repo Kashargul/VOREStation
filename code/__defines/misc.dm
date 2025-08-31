@@ -345,6 +345,7 @@ GLOBAL_LIST_EMPTY(##LIST_NAME);\
 
 //Job defines
 #define JOB_OUTSIDER	"Outsider" //VOREStation Note: Not implemented on VS. Used downstream.
+#define JOB_OUTSIDER_ROBOT "Ousider Robot"
 #define JOB_ANOMALY 	"Anomaly" //VOREStation Note: Not implemented on VS. Used downstream.
 #define JOB_VR			"VR Avatar"
 

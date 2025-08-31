@@ -28,6 +28,9 @@
 			GLOB.latejoin_gateway += loc
 			GLOB.latejoin += loc				//VOREStation Addition
 			delete_me = TRUE
+		if("JoinLateOutsider")
+			GLOB.latejoin_outsider += loc
+			delete_me = TRUE
 		if("JoinLateElevator")
 			GLOB.latejoin_elevator += loc
 			delete_me = TRUE

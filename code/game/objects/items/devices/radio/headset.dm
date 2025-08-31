@@ -650,3 +650,18 @@
 	if (disabledAi)
 		return -1 //Transciever Disabled.
 	return ..(freq, level, 1)
+
+/obj/item/radio/headset/outsider
+	name = "generic headset"
+	desc = "Headset used by those upon the planet, or in other words, outsiders."
+	icon_state = "exp_headset"
+	adhoc_fallback = TRUE
+
+	ks1type = /obj/item/encryptionkey/headset_outsider
+
+
+/obj/item/encryptionkey/headset_outsider
+	name = "outsider radio encryption key"
+	icon_state = "sec_cypherkey"
+
+	channels = list(CHANNEL_OUTSIDER = 1)

@@ -46,6 +46,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/arrivals
 	display_name = "Arrivals Shuttle"
 	msg = "will arrive to the station shortly by shuttle"
+	disallow_job = list(JOB_OUTSIDER, JOB_OUTSIDER_ROBOT)
 
 /datum/spawnpoint/arrivals/New()
 	..()
@@ -54,6 +55,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/gateway
 	display_name = "Gateway"
 	msg = "has completed translation from offsite gateway"
+	disallow_job = list(JOB_OUTSIDER, JOB_OUTSIDER_ROBOT)
 
 /datum/spawnpoint/gateway/New()
 	..()
@@ -71,6 +73,7 @@ var/list/spawntypes = list()
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
 	allowed_mob_types = JOB_CARBON
+	disallow_job = list(JOB_OUTSIDER, JOB_OUTSIDER_ROBOT)
 
 /datum/spawnpoint/cryo/New()
 	..()
@@ -80,6 +83,7 @@ var/list/spawntypes = list()
 	display_name = "Cyborg Storage"
 	msg = "has been activated from storage"
 	allowed_mob_types = JOB_SILICON
+	disallow_job = list(JOB_OUTSIDER, JOB_OUTSIDER_ROBOT)
 
 /datum/spawnpoint/cyborg/New()
 	..()
@@ -106,6 +110,7 @@ GLOBAL_LIST_EMPTY(latejoin_tram)
 /datum/spawnpoint/tram
 	display_name = "Tram Station"
 	msg = "will arrive to the station shortly by shuttle"
+	disallow_job = list(JOB_OUTSIDER, JOB_OUTSIDER_ROBOT)
 
 /datum/spawnpoint/tram/New()
 	..()
@@ -127,3 +132,15 @@ GLOBAL_LIST_EMPTY(latejoin_tram)
 /datum/spawnpoint/vore/New()
 	..()
 	turfs = GLOB.latejoin
+
+/datum/spawnpoint/outsider
+	display_name = "Unknown Location"
+	msg = "has checked in at the wilderness"
+	restrict_job = list(JOB_OUTSIDER, JOB_OUTSIDER_ROBOT, JOB_ANOMALY)
+
+/datum/spawnpoint/outsider/New()
+	..()
+	turfs = GLOB.latejoin_outsider
+
+/obj/effect/landmark/plainspath
+	name = "JoinLateOutsider"

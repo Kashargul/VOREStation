@@ -78,3 +78,10 @@
 	color = "#A52A2A"
 	sorting_order = 20 // Above Command.
 	centcom_only = TRUE
+
+/datum/department/noncrew
+	name = DEPARTMENT_NONCREW
+	short_name = "N/A"
+	sorting_order = -99
+	visible = FALSE
+	assignable = FALSE

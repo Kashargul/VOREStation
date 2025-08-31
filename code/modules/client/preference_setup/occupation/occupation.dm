@@ -18,6 +18,9 @@
 	pref.job_talon_med		= save_data["job_talon_med"]
 	pref.job_talon_high		= save_data["job_talon_high"]
 	//VOREStation Add End
+	pref.job_other_low	= save_data["job_other_low"]
+	pref.job_other_med	= save_data["job_other_med"]
+	pref.job_other_high	= save_data["job_other_high"]
 	pref.player_alt_titles	= check_list_copy(save_data["player_alt_titles"])
 
 /datum/category_item/player_setup_item/occupation/save_character(list/save_data)
@@ -36,6 +39,9 @@
 	save_data["job_talon_med"]		= pref.job_talon_med
 	save_data["job_talon_high"]		= pref.job_talon_high
 	//VOREStation Add End
+	save_data["job_other_low"]	= pref.job_other_low
+	save_data["job_other_med"]	= pref.job_other_med
+	save_data["job_other_high"]	= pref.job_other_high
 	save_data["player_alt_titles"]	= check_list_copy(pref.player_alt_titles)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character()
@@ -54,6 +60,9 @@
 	pref.job_talon_med 		= sanitize_integer(pref.job_talon_med, 0, 65535, initial(pref.job_talon_med))
 	pref.job_talon_low 		= sanitize_integer(pref.job_talon_low, 0, 65535, initial(pref.job_talon_low))
 	//VOREStation Add End
+	pref.job_other_high		= sanitize_integer(pref.job_other_high, 0, 65535, initial(pref.job_other_high))
+	pref.job_other_med		= sanitize_integer(pref.job_other_med, 0, 65535, initial(pref.job_other_med))
+	pref.job_other_low		= sanitize_integer(pref.job_other_low, 0, 65535, initial(pref.job_other_low))
 	if(!(pref.player_alt_titles)) pref.player_alt_titles = new()
 
 	if(!job_master)
@@ -305,6 +314,18 @@
 				if(3)
 					pref.job_talon_low |= job.flag
 		//VOREStation Add End
+		if(OTHER)
+			pref.job_other_low &= ~job.flag
+			pref.job_other_med &= ~job.flag
+			pref.job_other_high &= ~job.flag
+			switch(level)
+				if(1)
+					reset_jobhigh()
+					pref.job_other_high = job.flag
+				if(2)
+					pref.job_other_med |= job.flag
+				if(3)
+					pref.job_other_low |= job.flag
 
 	return 1
 
@@ -326,6 +347,10 @@
 	pref.job_talon_med = 0
 	pref.job_talon_low = 0
 	//VOREStation Add End
+
+	pref.job_other_high = 0
+	pref.job_other_med = 0
+	pref.job_other_low = 0
 
 	pref.player_alt_titles.Cut()
 
@@ -369,4 +394,12 @@
 				if(3)
 					return job_talon_low
 		//VOREStation Add End
+		if(OTHER)
+			switch(level)
+				if(1)
+					return job_other_high
+				if(2)
+					return job_other_med
+				if(3)
+					return job_other_low
 	return 0
