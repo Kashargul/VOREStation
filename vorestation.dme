@@ -1742,7 +1742,6 @@
 #include "code\game\objects\items\weapons\medigun\medigun_backpack.dm"
 #include "code\game\objects\items\weapons\medigun\medigun_backpack_ui.dm"
 #include "code\game\objects\items\weapons\medigun\medigun_modifiers.dm"
-#include "code\game\objects\items\weapons\medigun\medigun_verbs.dm"
 #include "code\game\objects\items\weapons\melee\deflect.dm"
 #include "code\game\objects\items\weapons\melee\energy.dm"
 #include "code\game\objects\items\weapons\melee\energy_vr.dm"

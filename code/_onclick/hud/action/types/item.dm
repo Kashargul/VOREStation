@@ -155,6 +155,3 @@
 
 /datum/action/item_action/toggle_mlembulance
 	name = "Toggle Mlembulance Mode"
-
-/datum/action/item_action/remove_replace_medigun
-	name = "Remove/Replace medigun"
