@@ -28,13 +28,21 @@
 	outputting(FALSE)
 	output_level = 0
 
-/// Standard charge, but with 100% input by default
+/// Max charge, but with 100% input by default
 /obj/machinery/power/smes/buildable/max_charge_max_input/apply_mapped_settings()
 	// Set charge
 	charge = capacity
 	// Set input to max
 	inputting(TRUE)
 	input_level = input_level_max
+
+/// Max charge, but with 100% output by default
+/obj/machinery/power/smes/buildable/max_charge_max_output/apply_mapped_settings()
+	// Set charge
+	charge = capacity
+	// Set input to max
+	outputting(TRUE)
+	output_level = output_level_max
 
 // Poi prop
 /obj/machinery/power/smes/buildable/alien_royal
