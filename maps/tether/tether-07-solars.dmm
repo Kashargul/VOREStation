@@ -322,6 +322,7 @@
 /obj/structure/cable/heavyduty,
 /obj/item/smes_coil,
 /obj/item/smes_coil,
+/obj/item/smes_coil,
 /turf/simulated/floor/virgo3b_indoors,
 /area/tether/outpost/solars_shed)
 "aP" = (

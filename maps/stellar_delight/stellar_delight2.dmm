@@ -4112,6 +4112,10 @@
 	RCon_tag = "Power - Main";
 	name = "Main"
 	},
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "iH" = (

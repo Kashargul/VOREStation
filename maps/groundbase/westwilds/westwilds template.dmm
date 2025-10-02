@@ -3406,6 +3406,7 @@
 	},
 /obj/item/smes_coil,
 /obj/item/smes_coil,
+/obj/item/smes_coil,
 /obj/machinery/power/smes/buildable/disable_output{
 	RCon_tag = "Power - Solar Array"
 	},
