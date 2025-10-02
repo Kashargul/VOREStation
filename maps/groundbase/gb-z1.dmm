@@ -7117,6 +7117,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
 /turf/simulated/floor,
 /area/groundbase/engineering/storage)
 "pv" = (
