@@ -52,7 +52,10 @@
 	input_level = 950000
 	output_level = 950000
 
+
+////////////////////////////////////////////////////////////////////////////////////
 // Hybrids
+////////////////////////////////////////////////////////////////////////////////////
 /obj/machinery/power/smes/buildable/hybrid/max_charge/apply_mapped_settings()
 	// Set charge
 	charge = capacity
@@ -76,3 +79,23 @@
 
 /obj/machinery/power/smes/buildable/hybrid/high_recharge_rate/apply_mapped_settings()
 	recharge_rate = 10000
+
+
+////////////////////////////////////////////////////////////////////////////////////
+// Preconfigured specials
+////////////////////////////////////////////////////////////////////////////////////
+/obj/machinery/power/smes/buildable/outpost_substation/max_charge/apply_mapped_settings()
+	// Set charge
+	charge = capacity
+
+/obj/machinery/power/smes/buildable/outpost_substation/max_charge_max_input/apply_mapped_settings()
+	// Set charge
+	charge = capacity
+	// Set input to max
+	inputting(TRUE)
+	input_level = input_level_max
+
+/obj/machinery/power/smes/batteryrack/mapped/input_and_output_on/apply_mapped_settings()
+	inputting(TRUE)
+	outputting(TRUE)
+	mode = 3
