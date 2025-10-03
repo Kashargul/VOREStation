@@ -7,7 +7,7 @@
 /obj/machinery/power/smes/buildable/engine_default/apply_mapped_settings()
 	// Set charge
 	charge = capacity
-	// Set output to max
+	// Set input and output to max
 	inputting(TRUE)
 	outputting(TRUE)
 	input_level = input_level_max
@@ -51,3 +51,28 @@
 	icon = 'icons/obj/alien_smes.dmi'
 	input_level = 950000
 	output_level = 950000
+
+// Hybrids
+/obj/machinery/power/smes/buildable/hybrid/max_charge/apply_mapped_settings()
+	// Set charge
+	charge = capacity
+
+/obj/machinery/power/smes/buildable/hybrid/engine_default/apply_mapped_settings()
+	// Set charge
+	charge = capacity
+	// Set input and output to max
+	inputting(TRUE)
+	outputting(TRUE)
+	input_level = input_level_max
+	output_level = output_level_max
+
+/obj/machinery/power/smes/buildable/hybrid/max_output/apply_mapped_settings()
+	outputting(TRUE)
+	output_level = output_level_max
+
+/obj/machinery/power/smes/buildable/hybrid/max_input/apply_mapped_settings()
+	inputting(TRUE)
+	input_level = input_level_max
+
+/obj/machinery/power/smes/buildable/hybrid/high_recharge_rate/apply_mapped_settings()
+	recharge_rate = 10000
