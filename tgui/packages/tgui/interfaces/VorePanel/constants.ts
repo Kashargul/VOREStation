@@ -58,7 +58,7 @@ export const digestModeToPreyMode = {
 };
 
 export const SYNTAX_REGEX =
-  /%belly|%pred|%prey|%countpreytotal|%countpreyabsorbed|%countprey|%countghosts|%count|%digestedprey|%ghost|%item|%dest|%goo|%happybelly|%fat|%grip|%cozy|%angry|%acid|%snack|%hot|%snake/g;
+  /%belly|%pred|%prey|%species|%countpreytotal|%countpreyabsorbed|%countprey|%countghosts|%count|%digestedprey|%ghost|%item|%dest|%goo|%happybelly|%fat|%grip|%cozy|%angry|%acid|%snack|%hot|%snake/g;
 export const SYNTAX_COLOR = {
   '%belly': 'average',
   '%pred': 'bad',

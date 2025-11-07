@@ -199,6 +199,7 @@ GLOBAL_LIST_INIT(vore_words_snake, list("snake","serpent","reptilian","noodle","
 	. = replacetext(., "%belly", get_belly_name())
 	. = replacetext(., "%pred", owner)
 	. = replacetext(., "%prey", prey)
+	. = replacetext(., "%species", get_prey_species(prey))
 
 	var/total_prey_count = 0
 	var/all_object_and_prey_count = LAZYLEN(contents)
@@ -241,6 +242,19 @@ GLOBAL_LIST_INIT(vore_words_snake, list("snake","serpent","reptilian","noodle","
 	. = replacetext(., "%snake", use_first_only ? GLOB.vore_words_snake[1] : pick(GLOB.vore_words_snake))
 	if(!.)
 		. = "No message set for this action. Please inform your pred to fix this."
+
+/obj/belly/proc/get_prey_species(mob/prey)
+	if(isanimal(prey))
+		return "animal"
+	if(isrobot(prey))
+		var/mob/living/silicon/robot/robot_prey = prey
+		return lowertext(robot_prey.braintype)
+	if(ishuman(prey))
+		var/mob/living/carbon/human/human_prey = prey
+		if(human_prey.custom_species)
+			return lowertext(human_prey.custom_species)
+		return lowertext(human_prey.species.name)
+	return "unknown"
 
 // Get the line that should show up in Examine message if the owner of this belly
 // is examined.   By making this a proc, we not only take advantage of polymorphism,
